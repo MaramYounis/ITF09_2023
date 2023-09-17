@@ -14,3 +14,29 @@ if __name__ == '__main__':
     print_hi('PyCharm')
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
+def add():
+     num1 = 20
+     num2 = 30
+     return num1 + num2
+
+
+def sub():
+    num1 = 50
+    num2 = 20
+    return num1 - num2
+
+def div():
+    num1 = 80
+    num2 = 20
+    return num1 / num2
+
+def mul():
+    num1 = 10
+    num2 = 30
+    return num1 * num2
+
+print(add())
+print(sub())
+print(div())
+print(mul())
