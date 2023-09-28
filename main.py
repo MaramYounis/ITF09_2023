@@ -14,82 +14,46 @@ if __name__ == '__main__':
     print_hi('PyCharm')
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
+#Q1
+def concatenate_dicts(*dicts):
+    concatenated_dict = {}
+    for d in dicts:
+        concatenated_dict.update(d)
+    return concatenated_dict
 
-import math
+dict1 = {"Name" : "Amal" , "Age" : 20}
+dict2 =  {"City" : 'Gaza', "Gender" : "Female"}
+dict3 = {'Name' : "Amal", 'Age' : 20, 'City' : 'Gaza', 'Gender': 'Female'}
 
-def sum_numbers():
-    num1 = float(input("Enter the first number: "))
-    num2 = float(input("Enter the second number: "))
-    result = num1 + num2
-    print(f"The sum of {num1} and {num2} is: {result}")
+result_dict = concatenate_dicts(dict1, dict2,dict3)
+print(result_dict)
 
-def subtract_numbers():
-    num1 = float(input("Enter the first number: "))
-    num2 = float(input("Enter the second number: "))
-    result = num1 - num2
-    print(f"The difference between {num1} and {num2} is: {result}")
 
-def multiply_numbers():
-    num1 = float(input("Enter the first number: "))
-    num2 = float(input("Enter the second number: "))
-    result = num1 * num2
-    print(f"The product of {num1} and {num2} is: {result}")
 
-def divide_numbers():
-    num1 = float(input("Enter the dividend: "))
-    num2 = float(input("Enter the divisor: "))
-    if num2 == 0:
-        print("Error: Division by zero")
-    else:
-        result = num1 / num2
-        print(f"The result of {num1} divided by {num2} is: {result}")
 
-def calculate_triangle_area():
-    base = float(input("Enter the base of the triangle: "))
-    height = float(input("Enter the height of the triangle: "))
-    area = 0.5 * base * height
-    print(f"The area of the triangle is: {area}")
 
-def calculate_circle_area():
-    radius = float(input("Enter the radius of the circle: "))
-    area = math.pi * radius * 2
-    print(f"The area of the circle is: {area}")
+# Q 2
+def calculate_rectangle_area(length, width):
+    if length <= 0 or width <= 0:
+        raise ValueError("Length and width must be positive values")
+    return length * width
 
-def calculate_rectangle_area():
+def calculate_rectangle_perimeter(length, width):
+    if length <= 0 or width <= 0:
+        raise ValueError("Length and width must be positive values")
+    return 2 * (length + width)
+
+try:
     length = float(input("Enter the length of the rectangle: "))
     width = float(input("Enter the width of the rectangle: "))
-    area = length * width
-    print(f"The area of the rectangle is: {area}")
 
-while True:
-    print("\nMain Menu:")
-    print("1. Sum")
-    print("2. Subtract")
-    print("3. Multiply")
-    print("4. Division")
-    print("5. Calculate triangle area")
-    print("6. Calculate circle area")
-    print("7. Calculate rectangle area")
-    print("8. Exit")
+    area = calculate_rectangle_area(length, width)
+    perimeter = calculate_rectangle_perimeter(length, width)
 
-    choice = input("Enter your choice (1-8): ")
+    print(f"Area: {area}")
+    print(f"Perimeter: {perimeter}")
 
-    if choice == '1':
-        sum_numbers()
-    elif choice == '2':
-        subtract_numbers()
-    elif choice == '3':
-        multiply_numbers()
-    elif choice == '4':
-        divide_numbers()
-    elif choice == '5':
-        calculate_triangle_area()
-    elif choice == '6':
-        calculate_circle_area()
-    elif choice == '7':
-        calculate_rectangle_area()
-    elif choice == '8':
-        print("Exiting the program. Goodbye!")
-        break
-    else:
-        print("Invalid choice. Please enter a number between 1 and 8.")
+except ValueError as e:
+    print(f"Error: {e}")
+
+
